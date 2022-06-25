@@ -1,10 +1,15 @@
 const btn = document.querySelectorAll('.btn');
 const modal = document.querySelectorAll('.modal');
+const closeBtn = document.querySelectorAll('.close-btn');
 
-btn.forEach((item) => {
+btn.forEach((item, index) => {
   item.addEventListener('click', () => {
-    modal.forEach((item) => {
-      item.classList.toggle('active');
-    })
+    modal[index].classList.add('active');
+  })
+})
+
+closeBtn.forEach((item, index) => {
+  item.addEventListener('click', () => {
+    modal[index].classList.remove('active');
   })
 })
