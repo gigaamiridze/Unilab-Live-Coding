@@ -1,0 +1,63 @@
+@import "../modules/variables";
+@import "../modules/classes";
+@import "../modules/mixins";
+
+body {
+  section {
+    height: 100vh;
+    background-color: aqua;
+    position: relative;
+    .container {
+      @extend %container;
+      .flex-block {
+        @include display(flex);
+        @include flex-property(space-between, center);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        .wrapper-box {
+          .title {
+            @include text-property(20px, $poppins, white);
+            text-align: center;
+            margin-bottom: 20px;
+          }
+          .box {
+            width: 200px;
+            height: 200px;
+            background-color: transparent;
+            @include border(2px, solid, white);
+            @include display(flex);
+            @include flex-property(center, center);
+            &:nth-child(2) {
+              margin: 0 20px;
+            }
+            .btn {
+              width: 100px;
+              height: 30px;
+              cursor: pointer;
+              background-color: white;
+              font-size: 16px;
+              color: black;
+              border: none;
+            }
+            .modal {
+              width: 150px;
+              height: 150px;
+              background-color: white;
+              @include display(flex);
+              @include flex-property(center, center);
+              display: none;
+              &.active {
+                display: block;
+              }
+              .modal-title {
+                @include text-property(20px, $poppins, black);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
